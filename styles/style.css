@@ -1,0 +1,14 @@
+:root {
+  /* CSS HEX */
+  --bg-primary: #676295ff;
+  --bg-note: #413c66ff;
+  --note-red: #ee7979ff;
+  --note-purple: #8a79eeff;
+  --note-yellow: #f0e7a0ff;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
