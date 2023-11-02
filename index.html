@@ -3,19 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="normalize.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playpen+Sans:wght@700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>YANT</title>
   </head>
   <body>
-    <header></header>
-    <main><h1>Yet Another Note-Taker</h1></main>
+    <header class="header__container">
+      <h1 class="header__title">YANT</h1>
+      <p class="header__title-description">Yet Another Note-Taker</p>
+    </header>
+    <main>
+      <section class="notes">
+        <h2 class="notes__title" hidden>Notes</h2>
+        <ul class="notes__list">
+          <li class="notes__list-item high-priority">
+            <h3 class="note__title">Note 1</h3>
+            <p class="note__date">8 July 2020</p>
+            <p class="note__content">
+              Proin sed congue risus. Sed blandit tincidunt enim a faucibus.
+              Fusce feugiat scelerisque ante, sed consequat eros eleifend at.
+              Integer consequat mauris vitae lorem finibus, sed feugiat lectus
+              rhoncus. Nullam tempus metus et aliquet faucibus. Nulla tristique
+              convallis nisl, ac aliquam sem dapibus quis. Curabitur purus elit,
+              varius nec tempus vel, mattis sit amet est. Sed venenatis ex in
+              elit facilisis, eget ultrices magna porttitor. Integer vulputate
+              enim rhoncus, ultricies ex et, tincidunt massa. Suspendisse
+              aliquet convallis aliquam. Quisque tempus, dui et viverra iaculis,
+              ex eros mattis enim, at sollicitudin lacus nunc ut nulla. Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum
+              tempor est non laoreet. Pellentesque malesuada tellus mauris, at
+              dignissim nulla tincidunt ac. Aliquam erat volutpat. Pellentesque
+              faucibus convallis enim in cursus. Donec pretium condimentum orci,
+              vel cursus lectus venenatis ultrices. Morbi gravida iaculis
+              faucibus. Pellentesque vitae erat metus. Donec dignissim, velit
+              eget consequat finibus, purus augue feugiat tortor, ac
+              sollicitudin purus mi id metus. Integer euismod elit et
+              sollicitudin ultrices. Proin semper leo nec purus venenatis
+              sollicitudin. Sed laoreet imperdiet pretium. Nam ut ipsum tortor.
+              Integer et sapien arcu. Sed ac elit mi. Nulla tellus lacus,
+              hendrerit a lacus vitae, maximus mattis enim. Phasellus sit amet
+              fermentum nulla.
+            </p>
+          </li>
+          <li class="notes__list-item medium-priority">
+            <h3 class="note__title">Note 2</h3>
+            <p class="note__date">8 July 2020</p>
+            <p class="note__content">
+              Proin sed congue risus. Sed blandit tincidunt enim a faucibus.
+              Fusce feugiat scelerisque ante, sed consequat eros eleifend at.
+              Integer consequat mauris vitae lorem finibus, sed feugiat lectus
+              rhoncus. Nullam tempus metus et aliquet faucibus. Nulla tristique
+              convallis nisl, ac aliquam sem dapibus quis. Curabitur purus elit,
+              varius nec tempus vel, mattis sit amet est. Sed venenatis ex in
+              elit facilisis, eget ultrices magna porttitor. Integer vulputate
+              enim rhoncus, ultricies ex et, tincidunt massa. Suspendisse
+              aliquet convallis aliquam. Quisque tempus, dui et viverra iaculis,
+              ex eros mattis enim, at sollicitudin lacus nunc ut nulla. Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum
+              tempor est non laoreet. Pellentesque malesuada tellus mauris, at
+              dignissim nulla tincidunt ac. Aliquam erat volutpat. Pellentesque
+              faucibus convallis enim in cursus. Donec pretium condimentum orci,
+              vel cursus lectus venenatis ultrices. Morbi gravida iaculis
+              faucibus. Pellentesque vitae erat metus. Donec dignissim, velit
+              eget consequat finibus, purus augue feugiat tortor, ac
+              sollicitudin purus mi id metus. Integer euismod elit et
+              sollicitudin ultrices. Proin semper leo nec purus venenatis
+              sollicitudin. Sed laoreet imperdiet pretium. Nam ut ipsum tortor.
+              Integer et sapien arcu. Sed ac elit mi. Nulla tellus lacus,
+              hendrerit a lacus vitae, maximus mattis enim. Phasellus sit amet
+              fermentum nulla.
+            </p>
+          </li>
+        </ul>
+        <button class="notes__add-btn">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </section>
+    </main>
     <footer></footer>
   </body>
 </html>

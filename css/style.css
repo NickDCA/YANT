@@ -1,0 +1,98 @@
+:root {
+  /* CSS HEX */
+  --bg-primary: #676295ff;
+  --bg-note: #413c66ff;
+  --note-red: #ee7979ff;
+  --note-green: #70e06d;
+  --note-yellow: rgb(230, 213, 85);
+  --montserrat: 'Montserrat', sans-serif;
+  --title-playpen: 'Playpen Sans', cursive;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: white;
+  font-family: var(--montserrat);
+  font-size: 16px;
+  text-align: center;
+  height: 100%;
+}
+
+/* HEADER */
+
+.header__title {
+  font-family: var(--title-playpen);
+  font-size: 2.5em;
+  margin: 0.5em 0;
+}
+
+.header__title-description {
+  font-style: italic;
+}
+
+/* NOTES */
+
+.notes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.notes__list {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  gap: 1em;
+  width: 75vw;
+}
+
+.notes__list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 1em;
+  background-color: var(--bg-note);
+  text-align: justify;
+  border-radius: 0.5em;
+}
+
+.high-priority {
+  border-left: 5px solid var(--note-red);
+}
+.medium-priority {
+  border-left: 5px solid var(--note-yellow);
+}
+.low-priority {
+  border-left: 5px solid var(--note-green);
+}
+
+/* .note__title .note__date .note__content */
+.note__title {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.note__date {
+  font-weight: 300;
+}
+
+.note__content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* max-height: 2em; */
+}
+
+.notes__add-btn {
+  background-color: var(--bg-note);
+  padding: 1em;
+  border-radius: 50%;
+  border: 0px transparent;
+}
+
+.add-icon {
+  height: 1em;
+  width: 1em;
+  color: white;
+}
