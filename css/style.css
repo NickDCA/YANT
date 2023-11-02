@@ -32,19 +32,28 @@ body {
 
 /* NOTES */
 
+.main__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .notes {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 75vw;
 }
 
 .notes__list {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 1em;
   gap: 1em;
-  width: 75vw;
+  /* width: 75vw; */
 }
 
 .notes__list-item {
@@ -55,6 +64,8 @@ body {
   background-color: var(--bg-note);
   text-align: justify;
   border-radius: 0.5em;
+  cursor: pointer;
+  height: 15vh;
 }
 
 .high-priority {
@@ -80,19 +91,50 @@ body {
 .note__content {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  /* max-height: 2em; */
+  white-space: wrap;
+  /* max-height: 3em; */
+}
+
+/* FORM */
+.notes__form {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  gap: 1em;
+  min-width: 35%;
+  max-width: 70%;
+  background-color: var(--bg-note);
+  border-radius: 0.5em;
+}
+
+#new-note {
+  max-width: 100%;
+}
+
+#new-note::placeholder {
+  font-family: var(--montserrat);
+  font-size: 0.8em;
+}
+
+.form__label {
+  font-weight: 600;
+  font-size: 1.5em;
+  text-align: justify;
 }
 
 .notes__add-btn {
   background-color: var(--bg-note);
-  padding: 1em;
+  padding: 0.75em;
   border-radius: 50%;
   border: 0px transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .add-icon {
-  height: 1em;
-  width: 1em;
+  height: 1.5em;
+  width: 1.5em;
   color: white;
 }
