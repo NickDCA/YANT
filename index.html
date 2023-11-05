@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -82,29 +82,33 @@
             </p>
           </li>
         </ul>
-        <form class="notes__form">
+        <!-- <form class="notes__form">
           <label for="new-note" class="form__label">New Note</label>
           <textarea
             name="new-note"
             id="new-note"
             placeholder="What's on your mind?"
+            rows="6"
           ></textarea>
-        </form>
-        <button class="notes__add-btn">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="add-icon"
-            viewBox="0 0 448 512"
-          >
-            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-            <path
-              fill="currentColor"
-              d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
-            />
-          </svg>
-        </button>
+        </form> -->
+        <a href="./pages/new-note.html">
+          <button class="notes__add-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="add-icon"
+              viewBox="0 0 448 512"
+            >
+              <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                fill="currentColor"
+                d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+              />
+            </svg>
+          </button>
+        </a>
       </section>
     </main>
     <footer></footer>
+    <script src="js/createNote.js"></script>
   </body>
 </html>
