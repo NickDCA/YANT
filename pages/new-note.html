@@ -12,29 +12,37 @@
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <title>Create Note</title>
+    <script src="../js/createNote.js" type="module"></script>
+    <script type="module" src="../js/getNotes.js"></script>
   </head>
   <body>
     <main>
       <h1 class="header__title">YANT</h1>
       <form class="form__container">
-        <input type="text" placeholder="Add a title" class="title__input" />
+        <input
+          type="text"
+          placeholder="Add a title"
+          class="title-input"
+          required
+        />
 
         <!-- <label for="new-note" class="form__label">New Note</label> -->
         <textarea
-          name="new-note"
-          id="new-note"
+          name="note-content"
+          id="note-content"
           placeholder="What's on your mind?"
           rows="10"
+          required
         ></textarea>
 
         <p class="form-priority__title">Select Priority:</p>
         <div class="form-priority">
-          <button class="form-priority__btn" id="low">Low</button
-          ><button class="form-priority__btn" id="medium">Medium</button
-          ><button class="form-priority__btn" id="high">High</button>
+          <button class="form-priority__btn" id="low">Low</button>
+          <button class="form-priority__btn" id="medium">Medium</button>
+          <button class="form-priority__btn" id="high">High</button>
         </div>
 
-        <button class="confirm__btn">
+        <button type="submit" class="confirm__btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="2em"
@@ -51,6 +59,5 @@
         </button>
       </form>
     </main>
-    <script src="../js/createNote.js"></script>
   </body>
 </html>

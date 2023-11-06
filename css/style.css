@@ -86,6 +86,9 @@ body {
 .low-priority {
   border-left: 5px solid var(--note-green);
 }
+.blank-priority {
+  border-left: 5px solid white;
+}
 
 /* .note__title .note__date .note__content */
 .note__title {
@@ -139,29 +142,30 @@ body {
   border-radius: 0.5em;
 }
 
-.title__input {
+.title-input {
   border: none;
   padding: 0.5em;
   background-color: var(--bg-note);
   color: white;
   font-size: 1.25em;
+  border-bottom: 1px solid white;
 }
 
-.title__input::placeholder {
+.title-input::placeholder {
   color: white;
   font-size: 1.25em;
   font-family: var(--montserrat);
   font-weight: 400;
 }
 
-#new-note {
+#note-content {
   resize: none;
   border: 0px transparent;
   border-radius: 0.5em;
   font-size: 1em;
 }
 
-#new-note::placeholder {
+#note-content::placeholder {
   font-family: var(--montserrat);
   font-size: 0.9em;
 }
@@ -196,6 +200,7 @@ body {
 
 #low:hover,
 #low.form-priority__btn--selected {
+  transition: 0.2s;
   background-color: var(--note-green);
   color: black;
 }
@@ -208,12 +213,14 @@ body {
 
 #high:hover,
 #high.form-priority__btn--selected {
+  transition: 0.2s;
   background-color: var(--note-red);
   color: black;
 }
 
 #medium:hover,
 #medium.form-priority__btn--selected {
+  transition: 0.2s;
   background-color: var(--note-yellow);
   color: black;
 }
@@ -235,11 +242,13 @@ body {
 }
 
 .confirm__icon {
-  border: 1px solid white;
+  border: 1px solid var(--bg-note);
   padding: 0.4em;
   border-radius: 50%;
 }
 
 .confirm__icon:hover {
-  background-color: var(--note-green);
+  color: var(--note-green);
+  background-color: var(--bg-note);
+  transition: 0.2s;
 }
