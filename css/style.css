@@ -40,18 +40,12 @@ body {
 
 /* NOTES */
 
-.main__container {
-  /* display: flex; */
-  /* align-items: center;
-  justify-content: center; */
-}
-
 .notes {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 2.5em;
+  padding: 1.5em;
   /* margin: 0 2em; */
 }
 
@@ -60,9 +54,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* padding: 2.5em; */
+  list-style: none;
   gap: 1em;
-  /* width: 75vw; */
+  width: 80%;
 }
 
 .notes__list-item {
@@ -105,6 +99,101 @@ body {
   overflow: hidden; /* Ocultar texto excedente */
   text-overflow: ellipsis; /* Adicionar elipse (...) quando o texto é cortado */
   max-height: 1em;
+}
+
+.note__modal {
+  display: none;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  /* background-color: black; */
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.note__modal--open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 1em;
+  background-color: var(--bg-note);
+  border: 2px solid white;
+  border-radius: 0.5em;
+  gap: 0.5em;
+}
+
+.modal__note-title {
+  font-size: 1.25em;
+  border: none;
+  border-bottom: 2px solid white;
+  padding: 0.3em;
+  color: white;
+  background-color: var(--bg-primary);
+}
+
+.modal__note-title::placeholder {
+  color: white;
+  font-size: 1.25em;
+  font-family: var(--montserrat);
+  font-weight: 400;
+}
+
+#modal__note-content {
+  resize: none;
+  border: 0px transparent;
+  border-radius: 0.5em;
+  font-size: 1em;
+  padding: 0.5em;
+}
+
+#modal__note-content::placeholder {
+  font-family: var(--montserrat);
+  font-size: 1em;
+}
+
+.modal__btn {
+  display: flex;
+  align-self: flex-end;
+  gap: 1em;
+}
+
+.modal__btn button {
+  border-radius: 0.5em;
+  padding: 0.5em;
+  font-size: 1em;
+}
+
+.modal__exit-btn {
+  background-color: transparent;
+  color: var(--note-red);
+  border: 1px solid var(--note-red);
+}
+
+.modal__exit-btn:hover,
+.modal__exit-btn::selection {
+  background-color: var(--note-red);
+  color: white;
+}
+
+.modal__save-btn {
+  background-color: transparent;
+  color: var(--note-green);
+  border: 1px solid var(--note-green);
+}
+
+.modal__save-btn:hover,
+.modal__save-btn::selection {
+  background-color: var(--note-green);
+  color: white;
 }
 
 /* NOTE ADD BUTTON */

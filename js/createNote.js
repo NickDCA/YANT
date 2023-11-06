@@ -33,16 +33,6 @@ function createNote(e) {
   let cMonth = currentDate.getMonth() + 1;
   let cYear = currentDate.getFullYear();
   let noteDate = `${cDay} ${cMonth} ${cYear}`;
-  let newNoteLi = document.createElement('li');
-  newNoteLi.classList.add('notes__list-item', `${notePriority}-priority`);
-  newNoteLi.innerHTML = `
-    <h3 class="note__title">${noteTitle}</h3>
-    <p class="note__date">${noteDate}</p>
-    <p class="note__content">
-      ${noteContent}
-    </p>
-    `;
-
   let noteItem = {
     title: noteTitle,
     date: noteDate,
@@ -54,7 +44,7 @@ function createNote(e) {
   console.table(notesList);
 
   updateLocalStorage();
-  console.log(newNoteLi);
+  // console.log(newNoteLi);
 
   selectedPriority = null;
 
