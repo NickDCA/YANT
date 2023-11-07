@@ -24,24 +24,65 @@
         <h2 class="notes__title" hidden>Notes</h2>
         <ul class="notes__list"></ul>
 
-        <a href="./pages/new-note.html">
-          <button class="notes__add-btn">
+        <button class="notes__add-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="add-icon"
+            viewBox="0 0 448 512"
+          >
+            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              fill="currentColor"
+              d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+            />
+          </svg>
+        </button>
+      </section>
+      <div class="form__modal">
+        <form class="form__container">
+          <input
+            type="text"
+            placeholder="Add a title"
+            class="title-input"
+            required
+          />
+
+          <!-- <label for="new-note" class="form__label">New Note</label> -->
+          <textarea
+            name="note-content"
+            id="note-content"
+            placeholder="What's on your mind?"
+            rows="10"
+            required
+          ></textarea>
+
+          <p class="form-priority__title">Select Priority:</p>
+          <div class="form-priority">
+            <button class="form-priority__btn" id="low">Low</button>
+            <button class="form-priority__btn" id="medium">Medium</button>
+            <button class="form-priority__btn" id="high">High</button>
+          </div>
+
+          <button type="submit" class="confirm__btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="add-icon"
+              height="2em"
+              width="2em"
+              class="confirm__icon"
               viewBox="0 0 448 512"
             >
               <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
               <path
                 fill="currentColor"
-                d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
               />
             </svg>
           </button>
-        </a>
-      </section>
+        </form>
+      </div>
     </main>
     <footer></footer>
     <script src="js/getNotes.js" type="module"></script>
+    <script type="module" src="js/createNote.js"></script>
   </body>
 </html>

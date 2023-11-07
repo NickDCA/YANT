@@ -56,15 +56,18 @@ function configureModal(modal) {
     e.stopPropagation();
     saveModalContent(modal);
     exitModal(modal);
+    noteSelected = null;
   });
   exitBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     exitModal(modal);
+    noteSelected = null;
   });
   deleteBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     deleteNote(modal.parentElement);
     exitModal(modal);
+    noteSelected = null;
   });
 }
 
@@ -89,11 +92,9 @@ function saveModalContent(modal) {
 
 function deleteNote(li) {
   let noteTitle = li.querySelector('.note__title');
-  console.table(notesList);
   notesList = notesList.filter((note) => note.title != noteTitle.textContent);
-  console.table(notesList);
+  li.remove();
   updateLocalStorage();
-  window.location.reload();
 }
 
 function exitModal(modal) {
@@ -101,15 +102,20 @@ function exitModal(modal) {
 }
 
 window.onclick = function (event) {
-  let noteModal = noteSelected.lastChild;
+  let noteModal = noteSelected ? noteSelected.lastChild : null;
+  let formModal = document.querySelector('.form__modal');
 
-  if (event.target == noteModal) {
-    noteModal.classList.remove('note__modal--open');
+  if (noteModal) {
+    event.target == noteModal
+      ? noteModal.classList.remove('note__modal--open')
+      : null;
+    noteSelected = null;
+  }
+  if (event.target == formModal) {
+    formModal.classList.remove('form__modal--open');
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  getNotes();
-});
+getNotes();
 
-export { noteSelected, notesList };
+export { configureModal, noteSelected, noteSelected, notesList };
