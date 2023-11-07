@@ -84,7 +84,7 @@ function createNote(e) {
 
   selectedPriority = null;
   document.querySelector('.title-input').value = '';
-  document.querySelector('#note-content').value;
+  document.querySelector('#note-content').value = '';
 
   formModal.classList.remove('form__modal--open');
   window.location.reload();
