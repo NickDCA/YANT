@@ -1,4 +1,6 @@
-const notesList =
+import { updateLocalStorage } from './updateLocalStorage.js';
+
+let notesList =
   localStorage.length > 0 ? JSON.parse(localStorage.getItem('notes')) : [];
 
 console.table(notesList);
@@ -19,15 +21,11 @@ function getNotes() {
         </p>
         <div class="note__modal">
           <div class="modal__content">
-            <input type="text" class="modal__note-title" placeholder=${note.title} />
-            <textarea
-              name="modal__content"
-              id="modal__note-content"
-              placeholder=${note.content}
-              rows="10"
-            ></textarea>
+            <h3 contenteditable="true" class="modal__note-title">${note.title}</h3>
+            <p contenteditable="true" class="modal__note-content">${note.content}</p>
             <div class="modal__btn">
               <button class="modal__exit-btn">Exit</button>
+              <button class="modal__delete-btn">Delete</button>
               <button class="modal__save-btn">Save 📝</button>
             </div>
           </div>
@@ -39,6 +37,7 @@ function getNotes() {
         noteSelected = newNoteLi;
       });
 
+      configureModal(noteModal);
       notesUl.appendChild(newNoteLi);
     });
   } else {
@@ -48,8 +47,62 @@ function getNotes() {
   }
 }
 
+function configureModal(modal) {
+  let saveBtn = modal.querySelector('.modal__save-btn');
+  let exitBtn = modal.querySelector('.modal__exit-btn');
+  let deleteBtn = modal.querySelector('.modal__delete-btn');
+
+  saveBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    saveModalContent(modal);
+    exitModal(modal);
+  });
+  exitBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    exitModal(modal);
+  });
+  deleteBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    deleteNote(modal.parentElement);
+    exitModal(modal);
+  });
+}
+
+function saveModalContent(modal) {
+  let newTitle = modal.querySelector('.modal__note-title').textContent;
+  let newContent = modal.querySelector('.modal__note-content').textContent;
+
+  const noteLi = modal.parentElement;
+  let noteTitle = noteLi.querySelector('.note__title');
+
+  let noteItem = notesList.find((note) => note.title == noteTitle.textContent);
+  if (noteItem) {
+    noteItem.title = newTitle;
+    noteItem.content = newContent;
+  }
+
+  noteTitle.textContent = newTitle;
+  let noteContent = noteLi.querySelector('.note__content');
+  noteContent.textContent = newContent;
+  updateLocalStorage();
+}
+
+function deleteNote(li) {
+  let noteTitle = li.querySelector('.note__title');
+  console.table(notesList);
+  notesList = notesList.filter((note) => note.title != noteTitle.textContent);
+  console.table(notesList);
+  updateLocalStorage();
+  window.location.reload();
+}
+
+function exitModal(modal) {
+  modal.classList.remove('note__modal--open');
+}
+
 window.onclick = function (event) {
   let noteModal = noteSelected.lastChild;
+
   if (event.target == noteModal) {
     noteModal.classList.remove('note__modal--open');
   }
@@ -59,4 +112,4 @@ document.addEventListener('DOMContentLoaded', () => {
   getNotes();
 });
 
-export { notesList };
+export { noteSelected, notesList };
