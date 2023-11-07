@@ -384,6 +384,10 @@ body {
     width: 40%;
   }
 
+  .modal__content {
+    width: 60%;
+  }
+
   .form__container {
     width: 60%;
   }
@@ -392,6 +396,10 @@ body {
 @media only screen and (min-width: 1400px) {
   .notes__list-item {
     width: 25%;
+  }
+
+  .modal__content {
+    width: 30%;
   }
 
   .form__container {
