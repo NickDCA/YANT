@@ -56,7 +56,7 @@ body {
   justify-content: center;
   list-style: none;
   gap: 1em;
-  width: 80%;
+  width: 100%;
 }
 
 .notes__list-item {
@@ -68,7 +68,7 @@ body {
   text-align: justify;
   border-radius: 0.5em;
   cursor: pointer;
-  width: 90%;
+  width: 80%;
 }
 
 .high-priority {
@@ -211,6 +211,7 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  margin-top: 1em;
 }
 
 .notes__add-btn:hover {
@@ -344,4 +345,26 @@ body {
   color: var(--note-green);
   background-color: var(--bg-note);
   transition: 0.2s;
+}
+
+@media only screen and (min-width: 765px) {
+  /* .notes {
+    flex-direction: row;
+  } */
+
+  .notes__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .notes__list-item {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .notes__list-item {
+    width: 25%;
+  }
 }
