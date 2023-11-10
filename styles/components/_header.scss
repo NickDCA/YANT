@@ -1,0 +1,18 @@
+/* HEADER */
+@keyframes textAnimation {
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.header__title {
+  font-family: $font-family_2;
+  font-size: 4em;
+  margin: 0.5em 0;
+  &-description {
+    font-size: 1.5em;
+    font-style: italic;
+    transform: translateX(100%);
+    animation: textAnimation 3s forwards;
+  }
+}
