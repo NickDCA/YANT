@@ -5,15 +5,15 @@ let notesList =
 
 console.table(notesList);
 
-let noteSelected = null;
+//let noteSelected = null;
 
 function getNotes() {
   const notesUl = document.querySelector('.notes__list');
   if (notesList.length > 0) {
     notesList.forEach((note) => {
-      let newNoteLi = document.createElement('li');
-      newNoteLi.classList.add('notes__list-item', `${note.priority}-priority`);
-      newNoteLi.innerHTML = `
+      let noteLi = document.createElement('li');
+      noteLi.classList.add('notes__list-item', `${note.priority}-priority`);
+      noteLi.innerHTML = `
       <h3 class="note__title">${note.title}</h3>
         <p class="note__date">${note.date}</p>
         <p class="note__content">
@@ -31,14 +31,13 @@ function getNotes() {
           </div>
         </div>`;
 
-      let noteModal = newNoteLi.lastChild;
-      newNoteLi.addEventListener('click', () => {
+      let noteModal = noteLi.lastChild;
+      noteLi.addEventListener('click', () => {
         noteModal.classList.add('note__modal--open');
-        noteSelected = newNoteLi;
       });
 
       configureModal(noteModal);
-      notesUl.appendChild(newNoteLi);
+      notesUl.appendChild(noteLi);
     });
   } else {
     return alert(
@@ -56,18 +55,18 @@ function configureModal(modal) {
     e.stopPropagation();
     saveModalContent(modal);
     exitModal(modal);
-    noteSelected = null;
+    //noteSelected = null;
   });
   exitBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     exitModal(modal);
-    noteSelected = null;
+    //noteSelected = null;
   });
   deleteBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     deleteNote(modal.parentElement);
     exitModal(modal);
-    noteSelected = null;
+    //noteSelected = null;
   });
 }
 
@@ -102,14 +101,14 @@ function exitModal(modal) {
 }
 
 window.onclick = function (event) {
-  let noteModal = noteSelected ? noteSelected.lastChild : null;
+  let noteModal = document.querySelector('.note__modal--open')
+    ? document.querySelector('.note__modal--open')
+    : null;
   let formModal = document.querySelector('.form__modal');
 
-  if (noteModal) {
-    event.target == noteModal
-      ? noteModal.classList.remove('note__modal--open')
-      : null;
-    noteSelected = null;
+  if (noteModal && event.target == noteModal) {
+    noteModal.classList.remove('note__modal--open');
+    //noteSelected = null;
   }
   if (event.target == formModal) {
     formModal.classList.remove('form__modal--open');
@@ -118,4 +117,4 @@ window.onclick = function (event) {
 
 getNotes();
 
-export { configureModal, noteSelected, noteSelected, notesList };
+export { configureModal, notesList };

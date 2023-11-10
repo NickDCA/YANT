@@ -1,4 +1,4 @@
-import { configureModal, noteSelected, notesList } from './getNotes.js';
+import { configureModal, notesList } from './getNotes.js';
 import { updateLocalStorage } from './updateLocalStorage.js';
 
 // OPENING THE FORM MODAL
@@ -80,12 +80,11 @@ function createNote(e) {
   console.table(notesList);
 
   updateLocalStorage();
-  // console.log(newNoteLi);
 
   selectedPriority = null;
   document.querySelector('.title-input').value = '';
   document.querySelector('#note-content').value = '';
 
   formModal.classList.remove('form__modal--open');
-  window.location.reload();
+  // window.location.reload();
 }
