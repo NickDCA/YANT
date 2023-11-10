@@ -25,6 +25,97 @@ body {
   animation: textAnimation 3s forwards;
 }
 
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 1em;
+  background-color: #413c66;
+  border: 2px solid white;
+  border-radius: 0.5em;
+  gap: 0.5em;
+}
+.modal__content .modal__note-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  border: none;
+  border-bottom: 2px solid white;
+  padding: 0.3em;
+  color: white;
+  background-color: #676295;
+}
+.modal__content .modal__note-content {
+  border: 2px solid white;
+  border-radius: 0.5em;
+  font-size: 1em;
+  padding: 0.5em;
+  text-align: justify;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+.modal__content .modal__btn {
+  display: flex;
+  align-self: flex-end;
+  gap: 1em;
+}
+.modal__content .modal__btn button {
+  border-radius: 0.5em;
+  padding: 0.5em;
+  font-size: 1em;
+}
+.modal__content .modal__delete-btn {
+  background-color: transparent;
+  color: #ee7979;
+  border: 1px solid #ee7979;
+}
+.modal__content .modal__delete-btn:hover {
+  background-color: #ee7979;
+  color: white;
+}
+.modal__content .modal__delete-btn::-moz-selection {
+  background-color: #ee7979;
+  color: white;
+}
+.modal__content .modal__delete-btn::selection {
+  background-color: #ee7979;
+  color: white;
+}
+.modal__content .modal__save-btn {
+  background-color: transparent;
+  color: #70e06d;
+  border: 1px solid #70e06d;
+}
+.modal__content .modal__save-btn:hover {
+  background-color: #70e06d;
+  color: white;
+}
+.modal__content .modal__save-btn::-moz-selection {
+  background-color: #70e06d;
+  color: white;
+}
+.modal__content .modal__save-btn::selection {
+  background-color: #70e06d;
+  color: white;
+}
+.modal__content .modal__exit-btn {
+  background-color: transparent;
+  color: gray;
+  border: 1px solid gray;
+}
+.modal__content .modal__exit-btn:hover {
+  background-color: gray;
+  color: white;
+}
+.modal__content .modal__exit-btn::-moz-selection {
+  background-color: gray;
+  color: white;
+}
+.modal__content .modal__exit-btn::selection {
+  background-color: gray;
+  color: white;
+}
+
 .notes {
   display: flex;
   align-items: center;
@@ -32,7 +123,6 @@ body {
   flex-direction: column;
   padding: 1.5em;
 }
-
 .notes__list {
   display: flex;
   flex-direction: column;
@@ -42,7 +132,6 @@ body {
   gap: 1em;
   width: 100%;
 }
-
 .notes__list-item {
   display: flex;
   flex-direction: column;
@@ -54,40 +143,20 @@ body {
   cursor: pointer;
   width: 80%;
 }
-
-.low-priority {
-  border-left: 5px solid #70e06d;
-}
-
-.medium-priority {
-  border-left: 5px solid rgb(230, 213, 85);
-}
-
-.high-priority {
-  border-left: 5px solid #ee7979;
-}
-
-.blank-priority {
-  border-left: 5px solid white;
-}
-
-.note__title {
+.notes__list-item .note__title {
   font-size: 1.5em;
   font-weight: 600;
 }
-
-.note__date {
+.notes__list-item .note__date {
   font-weight: 300;
 }
-
-.note__content {
+.notes__list-item .note__content {
   white-space: wrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-height: 1em;
 }
-
-.note__modal {
+.notes__list-item .note__modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -98,110 +167,23 @@ body {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
 }
-
-.note__modal--open {
+.notes__list-item .note__modal--open {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.modal__content {
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-  padding: 1em;
-  background-color: #413c66;
-  border: 2px solid white;
-  border-radius: 0.5em;
-  gap: 0.5em;
+.notes__list .low-priority {
+  border-left: 5px solid #70e06d;
 }
-
-.modal__note-title {
-  font-size: 1.5em;
-  font-weight: 600;
-  border: none;
-  border-bottom: 2px solid white;
-  padding: 0.3em;
-  color: white;
-  background-color: #676295;
+.notes__list .medium-priority {
+  border-left: 5px solid rgb(230, 213, 85);
 }
-
-.modal__note-content {
-  border: 2px solid white;
-  border-radius: 0.5em;
-  font-size: 1em;
-  padding: 0.5em;
-  text-align: justify;
-  white-space: pre-wrap;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+.notes__list .high-priority {
+  border-left: 5px solid #ee7979;
 }
-
-.modal__btn {
-  display: flex;
-  align-self: flex-end;
-  gap: 1em;
+.notes__list .blank-priority {
+  border-left: 5px solid white;
 }
-.modal__btn button {
-  border-radius: 0.5em;
-  padding: 0.5em;
-  font-size: 1em;
-}
-
-.modal__delete-btn {
-  background-color: transparent;
-  color: #ee7979;
-  border: 1px solid #ee7979;
-}
-.modal__delete-btn:hover {
-  background-color: #ee7979;
-  color: white;
-}
-.modal__delete-btn::-moz-selection {
-  background-color: #ee7979;
-  color: white;
-}
-.modal__delete-btn::selection {
-  background-color: #ee7979;
-  color: white;
-}
-
-.modal__save-btn {
-  background-color: transparent;
-  color: #70e06d;
-  border: 1px solid #70e06d;
-}
-.modal__save-btn:hover {
-  background-color: #70e06d;
-  color: white;
-}
-.modal__save-btn::-moz-selection {
-  background-color: #70e06d;
-  color: white;
-}
-.modal__save-btn::selection {
-  background-color: #70e06d;
-  color: white;
-}
-
-.modal__exit-btn {
-  background-color: transparent;
-  color: gray;
-  border: 1px solid gray;
-}
-.modal__exit-btn:hover {
-  background-color: gray;
-  color: white;
-}
-.modal__exit-btn::-moz-selection {
-  background-color: gray;
-  color: white;
-}
-.modal__exit-btn::selection {
-  background-color: gray;
-  color: white;
-}
-
 .notes__add-btn {
   background-color: #413c66;
   padding: 0.75em;

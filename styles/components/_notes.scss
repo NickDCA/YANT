@@ -1,0 +1,94 @@
+@import './note-modal';
+
+.notes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.5em;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: 1em;
+    width: 100%;
+    &-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      padding: 1em;
+      background-color: $color-note;
+      text-align: justify;
+      border-radius: 0.5em;
+      cursor: pointer;
+      width: 80%;
+
+      .note__title {
+        font-size: 1.5em;
+        font-weight: 600;
+      }
+      .note__date {
+        font-weight: 300;
+      }
+      .note__content {
+        white-space: wrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 1em;
+      }
+
+      .note__modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: $backdrop-modal;
+      }
+      .note__modal--open {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .low-priority {
+      border-left: 5px solid $green;
+    }
+    .medium-priority {
+      border-left: 5px solid $yellow;
+    }
+    .high-priority {
+      border-left: 5px solid $red;
+    }
+
+    .blank-priority {
+      border-left: 5px solid $white;
+    }
+  }
+  &__add-btn {
+    background-color: $color-note;
+    padding: 0.75em;
+    border-radius: 50%;
+    border: 0px transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 1em;
+    &:hover {
+      background-color: $green;
+    }
+  }
+}
+
+.add-icon {
+  height: 1.5em;
+  width: 1.5em;
+  color: $white;
+}

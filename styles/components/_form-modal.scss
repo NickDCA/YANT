@@ -1,0 +1,130 @@
+.form__modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: $backdrop-modal;
+}
+.form__modal--open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form__container {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  gap: 1em;
+  width: 90%;
+  border-radius: 0.5em;
+  background-color: $color-primary;
+  border: 1px solid white;
+}
+.title-input {
+  border: none;
+  padding: 0.5em;
+  background-color: $color-note;
+  color: $white;
+  font-size: 1.25em;
+  border-bottom: 1px solid white;
+  &::placeholder {
+    color: $white;
+    font-size: 1.25em;
+    font-family: $font-family_1;
+    font-weight: 400;
+  }
+}
+#note-content {
+  resize: none;
+  border: 0px transparent;
+  border-radius: 0.5em;
+  font-size: 1em;
+  &::placeholder {
+    font-family: $font-family_1;
+    font-size: 0.9em;
+  }
+}
+.form__label {
+  font-weight: 600;
+  font-size: 1.5em;
+  text-align: justify;
+}
+.form-priority {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1em;
+}
+.form-priority__btn {
+  padding: 0.5em;
+  flex-grow: 1;
+  background-color: $color-note;
+  border: 0px transparent;
+  font-size: 1em;
+}
+#low {
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  color: $green;
+  &:hover {
+    transition: 0.2s;
+    background-color: $green;
+    color: $black;
+  }
+}
+#low.form-priority__btn--selected {
+  transition: 0.2s;
+  background-color: $green;
+  color: $black;
+}
+#high {
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  color: $red;
+  &:hover {
+    transition: 0.2s;
+    background-color: $red;
+    color: $black;
+  }
+}
+#high.form-priority__btn--selected {
+  transition: 0.2s;
+  background-color: $red;
+  color: $black;
+}
+#medium {
+  &:hover {
+    transition: 0.2s;
+    background-color: $yellow;
+    color: $black;
+  }
+  color: $yellow;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+#medium.form-priority__btn--selected {
+  transition: 0.2s;
+  background-color: $yellow;
+  color: $black;
+}
+.confirm__btn {
+  border: 0px transparent;
+  width: auto;
+  align-self: center;
+  background-color: $color-primary;
+  color: $white;
+}
+.confirm__icon {
+  border: 1px solid $color-note;
+  padding: 0.4em;
+  border-radius: 50%;
+  &:hover {
+    color: $green;
+    background-color: $color-note;
+    transition: 0.2s;
+  }
+}
