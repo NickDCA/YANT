@@ -6,7 +6,7 @@
   --note-green: #70e06d;
   --note-yellow: rgb(230, 213, 85);
   --montserrat: 'Montserrat', sans-serif;
-  --title-playpen: 'Playpen Sans', cursive;
+  --title-font: 'Comic Zine OT', sans-serif;
 }
 
 body {
@@ -21,8 +21,8 @@ body {
 /* HEADER */
 
 .header__title {
-  font-family: var(--title-playpen);
-  font-size: 2.5em;
+  font-family: var(--title-font);
+  font-size: 4em;
   margin: 0.5em 0;
 }
 
