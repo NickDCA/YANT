@@ -36,7 +36,7 @@ function getNotes() {
         noteModal.classList.add('note__modal--open');
       });
 
-      configureModal(noteModal);
+      configureNoteModal(noteModal);
       notesUl.appendChild(noteLi);
     });
   } else {
@@ -46,7 +46,7 @@ function getNotes() {
   }
 }
 
-function configureModal(modal) {
+function configureNoteModal(modal) {
   let saveBtn = modal.querySelector('.modal__save-btn');
   let exitBtn = modal.querySelector('.modal__exit-btn');
   let deleteBtn = modal.querySelector('.modal__delete-btn');
@@ -117,4 +117,4 @@ window.onclick = function (event) {
 
 getNotes();
 
-export { configureModal, notesList };
+export { configureNoteModal, notesList };

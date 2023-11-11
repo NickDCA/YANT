@@ -1,4 +1,4 @@
-import { configureModal, notesList } from './getNotes.js';
+import { configureNoteModal, notesList } from './getNotes.js';
 import { updateLocalStorage } from './updateLocalStorage.js';
 
 // OPENING THE FORM MODAL
@@ -39,7 +39,7 @@ function createNote(e) {
   let cDay = currentDate.getDate();
   let cMonth = currentDate.getMonth() + 1;
   let cYear = currentDate.getFullYear();
-  let noteDate = `${cDay} ${cMonth} ${cYear}`;
+  let noteDate = `${cDay}/${cMonth}/${cYear}`;
   let noteLi = document.createElement('li');
   noteLi.classList.add('notes__list-item', `${notePriority}-priority`);
   noteLi.innerHTML = `
@@ -65,7 +65,7 @@ function createNote(e) {
     noteModal.classList.add('note__modal--open');
   });
 
-  configureModal(noteModal);
+  configureNoteModal(noteModal);
 
   let noteItem = {
     title: noteTitle,
