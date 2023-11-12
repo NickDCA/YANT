@@ -1,36 +1,7 @@
-import { configureModal, noteSelected, notesList } from './getNotes.js';
+import { configureNoteModal, notesList } from './index.js';
 import { updateLocalStorage } from './updateLocalStorage.js';
 
-// OPENING THE FORM MODAL
-const newNoteBtn = document.querySelector('.notes__add-btn');
-const formModal = document.querySelector('.form__modal');
-newNoteBtn.addEventListener('click', (e) => {
-  formModal.classList.add('form__modal--open');
-});
-
-// HANDLE PRIORITY
-const prioritySelectors = document.querySelectorAll('.form-priority__btn');
-let selectedPriority = null;
-prioritySelectors.forEach((btn) => {
-  btn.addEventListener('click', (e) => handlePrioritySelection(e, btn));
-});
-
-function handlePrioritySelection(e, btn) {
-  e.preventDefault();
-  if (selectedPriority) {
-    selectedPriority.classList.remove('form-priority__btn--selected');
-  }
-
-  selectedPriority = document.getElementById(btn.id);
-  selectedPriority.classList.add('form-priority__btn--selected');
-}
-
-// CREATION OF NEW NOTES
-
-const confirmBtn = document.querySelector('.confirm__icon');
-confirmBtn.addEventListener('click', (e) => createNote(e));
-
-function createNote(e) {
+export function createNote(e, selectedPriority) {
   e.preventDefault();
   let noteTitle = document.querySelector('.title-input').value;
   let noteContent = document.querySelector('#note-content').value;
@@ -39,7 +10,7 @@ function createNote(e) {
   let cDay = currentDate.getDate();
   let cMonth = currentDate.getMonth() + 1;
   let cYear = currentDate.getFullYear();
-  let noteDate = `${cDay} ${cMonth} ${cYear}`;
+  let noteDate = `${cDay}/${cMonth}/${cYear}`;
   let noteLi = document.createElement('li');
   noteLi.classList.add('notes__list-item', `${notePriority}-priority`);
   noteLi.innerHTML = `
@@ -65,7 +36,7 @@ function createNote(e) {
     noteModal.classList.add('note__modal--open');
   });
 
-  configureModal(noteModal);
+  configureNoteModal(noteModal);
 
   let noteItem = {
     title: noteTitle,
@@ -80,12 +51,9 @@ function createNote(e) {
   console.table(notesList);
 
   updateLocalStorage();
-  // console.log(newNoteLi);
 
-  selectedPriority = null;
   document.querySelector('.title-input').value = '';
   document.querySelector('#note-content').value = '';
 
-  formModal.classList.remove('form__modal--open');
-  window.location.reload();
+  // window.location.reload();
 }

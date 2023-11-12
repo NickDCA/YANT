@@ -1,0 +1,79 @@
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 1em;
+  background-color: $color-note;
+  border: 2px solid white;
+  border-radius: 0.5em;
+  gap: 0.5em;
+
+  .modal__note-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    border: none;
+    border-bottom: 2px solid white;
+    padding: 0.3em;
+    color: $white;
+    background-color: $color-primary;
+  }
+  .modal__note-content {
+    border: 2px solid white;
+    border-radius: 0.5em;
+    font-size: 1em;
+    padding: 0.5em;
+    text-align: justify;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  .modal__btn {
+    display: flex;
+    align-self: flex-end;
+    gap: 1em;
+    button {
+      border-radius: 0.5em;
+      padding: 0.5em;
+      font-size: 1em;
+    }
+  }
+  .modal__delete-btn {
+    background-color: transparent;
+    color: $red;
+    border: 1px solid $red;
+    &:hover {
+      background-color: $red;
+      color: $white;
+    }
+    &::selection {
+      background-color: $red;
+      color: $white;
+    }
+  }
+  .modal__save-btn {
+    background-color: transparent;
+    color: $green;
+    border: 1px solid $green;
+    &:hover {
+      background-color: $green;
+      color: $white;
+    }
+    &::selection {
+      background-color: $green;
+      color: $white;
+    }
+  }
+  .modal__exit-btn {
+    background-color: transparent;
+    color: $gray;
+    border: 1px solid gray;
+    &:hover {
+      background-color: $gray;
+      color: $white;
+    }
+    &::selection {
+      background-color: $gray;
+      color: $white;
+    }
+  }
+}

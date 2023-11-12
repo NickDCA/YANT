@@ -1,0 +1,482 @@
+body {
+  background-color: #676295;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  height: 100%;
+}
+
+/* HEADER */
+@keyframes textAnimation {
+  to {
+    transform: translateX(0%);
+  }
+}
+.header__title {
+  font-family: "Comic Zine OT", sans-serif;
+  font-size: 4em;
+  margin: 0.5em 0;
+}
+.header__title-description {
+  font-size: 1.5em;
+  font-style: italic;
+  transform: translateX(100%);
+  animation: textAnimation 3s forwards;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 1em;
+  background-color: #413c66;
+  border: 2px solid white;
+  border-radius: 0.5em;
+  gap: 0.5em;
+}
+.modal__content .modal__note-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  border: none;
+  border-bottom: 2px solid white;
+  padding: 0.3em;
+  color: white;
+  background-color: #676295;
+}
+.modal__content .modal__note-content {
+  border: 2px solid white;
+  border-radius: 0.5em;
+  font-size: 1em;
+  padding: 0.5em;
+  text-align: justify;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+.modal__content .modal__btn {
+  display: flex;
+  align-self: flex-end;
+  gap: 1em;
+}
+.modal__content .modal__btn button {
+  border-radius: 0.5em;
+  padding: 0.5em;
+  font-size: 1em;
+}
+.modal__content .modal__delete-btn {
+  background-color: transparent;
+  color: #ee7979;
+  border: 1px solid #ee7979;
+}
+.modal__content .modal__delete-btn:hover {
+  background-color: #ee7979;
+  color: white;
+}
+.modal__content .modal__delete-btn::-moz-selection {
+  background-color: #ee7979;
+  color: white;
+}
+.modal__content .modal__delete-btn::selection {
+  background-color: #ee7979;
+  color: white;
+}
+.modal__content .modal__save-btn {
+  background-color: transparent;
+  color: #70e06d;
+  border: 1px solid #70e06d;
+}
+.modal__content .modal__save-btn:hover {
+  background-color: #70e06d;
+  color: white;
+}
+.modal__content .modal__save-btn::-moz-selection {
+  background-color: #70e06d;
+  color: white;
+}
+.modal__content .modal__save-btn::selection {
+  background-color: #70e06d;
+  color: white;
+}
+.modal__content .modal__exit-btn {
+  background-color: transparent;
+  color: gray;
+  border: 1px solid gray;
+}
+.modal__content .modal__exit-btn:hover {
+  background-color: gray;
+  color: white;
+}
+.modal__content .modal__exit-btn::-moz-selection {
+  background-color: gray;
+  color: white;
+}
+.modal__content .modal__exit-btn::selection {
+  background-color: gray;
+  color: white;
+}
+
+.notes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.5em;
+}
+.notes__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 1em;
+  width: 100%;
+}
+.notes__list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 1em;
+  background-color: #413c66;
+  text-align: justify;
+  border-radius: 0.5em;
+  cursor: pointer;
+  width: 80%;
+}
+.notes__list-item .note__title {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.notes__list-item .note__date {
+  font-weight: 300;
+}
+.notes__list-item .note__content {
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 1em;
+}
+.notes__list-item .note__modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.notes__list-item .note__modal--open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.notes__list .low-priority {
+  border-left: 5px solid;
+  border-color: #70e06d;
+}
+.notes__list .medium-priority {
+  border-left: 5px solid;
+  border-color: rgb(230, 213, 85);
+}
+.notes__list .high-priority {
+  border-left: 5px solid;
+  border-color: #ee7979;
+}
+.notes__list .blank-priority {
+  border-left: 5px solid;
+  border-color: white;
+}
+.notes__add-btn {
+  background-color: #413c66;
+  padding: 0.75em;
+  border-radius: 50%;
+  border: 0px transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 1em;
+}
+.notes__add-btn:hover {
+  background-color: #70e06d;
+}
+
+.add-icon {
+  height: 1.5em;
+  width: 1.5em;
+  color: white;
+}
+
+.form__modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.form__modal--open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  gap: 1em;
+  width: 90%;
+  border-radius: 0.5em;
+  background-color: #676295;
+  border: 1px solid white;
+}
+
+.title-input {
+  border: none;
+  padding: 0.5em;
+  background-color: #413c66;
+  color: white;
+  font-size: 1.25em;
+  border-bottom: 1px solid white;
+}
+.title-input::-moz-placeholder {
+  color: white;
+  font-size: 1.25em;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+.title-input::placeholder {
+  color: white;
+  font-size: 1.25em;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+#note-content {
+  resize: none;
+  border: 0px transparent;
+  border-radius: 0.5em;
+  font-size: 1em;
+}
+#note-content::-moz-placeholder {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9em;
+}
+#note-content::placeholder {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9em;
+}
+
+.form__label {
+  font-weight: 600;
+  font-size: 1.5em;
+  text-align: justify;
+}
+
+.form-priority {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1em;
+}
+
+.form-priority__btn {
+  padding: 0.5em;
+  flex-grow: 1;
+  background-color: #413c66;
+  border: 0px transparent;
+  font-size: 1em;
+}
+
+#low {
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  color: #70e06d;
+}
+#low:hover {
+  transition: 0.2s;
+  background-color: #70e06d;
+  color: black;
+}
+
+#low.form-priority__btn--selected {
+  transition: 0.2s;
+  background-color: #70e06d;
+  color: black;
+}
+
+#high {
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  color: #ee7979;
+}
+#high:hover {
+  transition: 0.2s;
+  background-color: #ee7979;
+  color: black;
+}
+
+#high.form-priority__btn--selected {
+  transition: 0.2s;
+  background-color: #ee7979;
+  color: black;
+}
+
+#medium {
+  color: rgb(230, 213, 85);
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+#medium:hover {
+  transition: 0.2s;
+  background-color: rgb(230, 213, 85);
+  color: black;
+}
+
+#medium.form-priority__btn--selected {
+  transition: 0.2s;
+  background-color: rgb(230, 213, 85);
+  color: black;
+}
+
+.confirm__btn {
+  border: 0px transparent;
+  width: auto;
+  align-self: center;
+  background-color: #676295;
+  color: white;
+}
+
+.confirm__icon {
+  border: 1px solid #413c66;
+  padding: 0.4em;
+  border-radius: 50%;
+}
+.confirm__icon:hover {
+  color: #70e06d;
+  background-color: #413c66;
+  transition: 0.2s;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+@media only screen and (min-width: 765px) {
+  .notes__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .notes__list-item {
+    width: 40%;
+  }
+  .modal__content {
+    width: 60%;
+  }
+  .form__container {
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .notes__list-item {
+    width: 25%;
+  }
+  .modal__content {
+    width: 30%;
+  }
+  .form__container {
+    width: 30%;
+  }
+}/*# sourceMappingURL=style.css.map */
