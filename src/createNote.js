@@ -1,43 +1,7 @@
 import { configureNoteModal, notesList } from './index.js';
 import { updateLocalStorage } from './updateLocalStorage.js';
 
-// HANDLE PRIORITY
-const prioritySelectors = document.querySelectorAll('.form-priority__btn');
-let selectedPriority = null;
-prioritySelectors.forEach((btn) => {
-  btn.addEventListener('click', (e) => handlePrioritySelection(e, btn));
-});
-
-// OPENING THE FORM MODAL
-const newNoteBtn = document.querySelector('.notes__add-btn');
-const formModal = document.querySelector('.form__modal');
-newNoteBtn.addEventListener('click', (e) => {
-  formModal.classList.add('form__modal--open');
-  clearPriority(prioritySelectors);
-});
-
-function clearPriority(prioritySelectors) {
-  prioritySelectors.forEach((selector) => {
-    selector.classList.remove('form-priority__btn--selected');
-  });
-}
-
-function handlePrioritySelection(e, btn) {
-  e.preventDefault();
-  if (selectedPriority) {
-    selectedPriority.classList.remove('form-priority__btn--selected');
-  }
-
-  selectedPriority = document.getElementById(btn.id);
-  selectedPriority.classList.add('form-priority__btn--selected');
-}
-
-// CREATION OF NEW NOTES
-
-const confirmBtn = document.querySelector('.confirm__icon');
-confirmBtn.addEventListener('click', (e) => createNote(e));
-
-function createNote(e) {
+export function createNote(e, selectedPriority) {
   e.preventDefault();
   let noteTitle = document.querySelector('.title-input').value;
   let noteContent = document.querySelector('#note-content').value;
@@ -88,10 +52,8 @@ function createNote(e) {
 
   updateLocalStorage();
 
-  selectedPriority = null;
   document.querySelector('.title-input').value = '';
   document.querySelector('#note-content').value = '';
 
-  formModal.classList.remove('form__modal--open');
   // window.location.reload();
 }

@@ -1,3 +1,6 @@
+import { marked } from 'marked';
+import '../styles/style.scss';
+import { createNote } from './createNote.js';
 import { updateLocalStorage } from './updateLocalStorage.js';
 
 let notesList =
@@ -13,16 +16,17 @@ function getNotes() {
     notesList.forEach((note) => {
       let noteLi = document.createElement('li');
       noteLi.classList.add('notes__list-item', `${note.priority}-priority`);
+      let noteContent = note.content;
       noteLi.innerHTML = `
       <h3 class="note__title">${note.title}</h3>
         <p class="note__date">${note.date}</p>
         <p class="note__content">
-          ${note.content}
+          ${noteContent}
         </p>
         <div class="note__modal">
           <div class="modal__content">
             <h3 contenteditable="true" class="modal__note-title">${note.title}</h3>
-            <p contenteditable="true" class="modal__note-content">${note.content}</p>
+            <p contenteditable="true" class="modal__note-content">${noteContent}</p>
             <div class="modal__btn">
               <button class="modal__exit-btn">Exit</button>
               <button class="modal__delete-btn">Delete</button>
@@ -100,11 +104,51 @@ function exitModal(modal) {
   modal.classList.remove('note__modal--open');
 }
 
+getNotes();
+
+// HANDLE PRIORITY
+const prioritySelectors = document.querySelectorAll('.form-priority__btn');
+let selectedPriority = null;
+prioritySelectors.forEach((btn) => {
+  btn.addEventListener('click', (e) => handlePrioritySelection(e, btn));
+});
+
+// OPENING THE FORM MODAL
+const newNoteBtn = document.querySelector('.notes__add-btn');
+const formModal = document.querySelector('.form__modal');
+newNoteBtn.addEventListener('click', (e) => {
+  formModal.classList.add('form__modal--open');
+  clearPriority(prioritySelectors);
+});
+
+function clearPriority(prioritySelectors) {
+  prioritySelectors.forEach((selector) => {
+    selector.classList.remove('form-priority__btn--selected');
+  });
+}
+
+function handlePrioritySelection(e, btn) {
+  e.preventDefault();
+  if (selectedPriority) {
+    selectedPriority.classList.remove('form-priority__btn--selected');
+  }
+
+  selectedPriority = document.getElementById(btn.id);
+  selectedPriority.classList.add('form-priority__btn--selected');
+}
+
+// CREATION OF NEW NOTES
+
+const confirmBtn = document.querySelector('.confirm__icon');
+confirmBtn.addEventListener('click', (e) => {
+  createNote(e, selectedPriority);
+  formModal.classList.remove('form__modal--open');
+});
+
 window.onclick = function (event) {
   let noteModal = document.querySelector('.note__modal--open')
     ? document.querySelector('.note__modal--open')
     : null;
-  let formModal = document.querySelector('.form__modal');
 
   if (noteModal && event.target == noteModal) {
     noteModal.classList.remove('note__modal--open');
@@ -115,6 +159,4 @@ window.onclick = function (event) {
   }
 };
 
-getNotes();
-
-export { configureNoteModal, notesList };
+export { configureNoteModal, notesList, selectedPriority };

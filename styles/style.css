@@ -173,16 +173,20 @@ body {
   justify-content: center;
 }
 .notes__list .low-priority {
-  border-left: 5px solid #70e06d;
+  border-left: 5px solid;
+  border-color: #70e06d;
 }
 .notes__list .medium-priority {
-  border-left: 5px solid rgb(230, 213, 85);
+  border-left: 5px solid;
+  border-color: rgb(230, 213, 85);
 }
 .notes__list .high-priority {
-  border-left: 5px solid #ee7979;
+  border-left: 5px solid;
+  border-color: #ee7979;
 }
 .notes__list .blank-priority {
-  border-left: 5px solid white;
+  border-left: 5px solid;
+  border-color: white;
 }
 .notes__add-btn {
   background-color: #413c66;
@@ -359,6 +363,93 @@ body {
   color: #70e06d;
   background-color: #413c66;
   transition: 0.2s;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
 }
 
 @media only screen and (min-width: 765px) {
