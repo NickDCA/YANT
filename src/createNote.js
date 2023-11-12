@@ -1,12 +1,5 @@
-import { configureNoteModal, notesList } from './getNotes.js';
+import { configureNoteModal, notesList } from './index.js';
 import { updateLocalStorage } from './updateLocalStorage.js';
-
-// OPENING THE FORM MODAL
-const newNoteBtn = document.querySelector('.notes__add-btn');
-const formModal = document.querySelector('.form__modal');
-newNoteBtn.addEventListener('click', (e) => {
-  formModal.classList.add('form__modal--open');
-});
 
 // HANDLE PRIORITY
 const prioritySelectors = document.querySelectorAll('.form-priority__btn');
@@ -14,6 +7,20 @@ let selectedPriority = null;
 prioritySelectors.forEach((btn) => {
   btn.addEventListener('click', (e) => handlePrioritySelection(e, btn));
 });
+
+// OPENING THE FORM MODAL
+const newNoteBtn = document.querySelector('.notes__add-btn');
+const formModal = document.querySelector('.form__modal');
+newNoteBtn.addEventListener('click', (e) => {
+  formModal.classList.add('form__modal--open');
+  clearPriority(prioritySelectors);
+});
+
+function clearPriority(prioritySelectors) {
+  prioritySelectors.forEach((selector) => {
+    selector.classList.remove('form-priority__btn--selected');
+  });
+}
 
 function handlePrioritySelection(e, btn) {
   e.preventDefault();
