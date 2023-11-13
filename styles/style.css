@@ -1,3 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
 body {
   background-color: #676295;
   color: white;
@@ -264,6 +272,7 @@ body {
   border: 0px transparent;
   border-radius: 0.5em;
   font-size: 1em;
+  padding: 1em;
 }
 #note-content::-moz-placeholder {
   font-family: "Montserrat", sans-serif;
@@ -347,109 +356,23 @@ body {
 }
 
 .confirm__btn {
-  border: 0px transparent;
-  width: auto;
   align-self: center;
   background-color: #676295;
   color: white;
+  width: auto;
 }
 
 .confirm__icon {
   border: 1px solid #413c66;
   padding: 0.4em;
   border-radius: 50%;
+  width: 2.8em;
+  aspect-ratio: 1/1;
 }
 .confirm__icon:hover {
   color: #70e06d;
   background-color: #413c66;
   transition: 0.2s;
-}
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
 }
 
 @media only screen and (min-width: 765px) {

@@ -1,4 +1,5 @@
-import { configureNoteModal, notesList } from './index.js';
+import { configureNoteModal } from './configureNoteModal.js';
+import { notesList } from './index.js';
 import { updateLocalStorage } from './updateLocalStorage.js';
 
 export function createNote(e, selectedPriority) {
@@ -16,9 +17,7 @@ export function createNote(e, selectedPriority) {
   noteLi.innerHTML = `
     <h3 class="note__title">${noteTitle}</h3>
     <p class="note__date">${noteDate}</p>
-    <p class="note__content">
-      ${noteContent}
-    </p>
+    <p class="note__content">${noteContent}</p>
     <div class="note__modal">
       <div class="modal__content">
         <h3 contenteditable="true" class="modal__note-title">${noteTitle}</h3>
@@ -54,6 +53,4 @@ export function createNote(e, selectedPriority) {
 
   document.querySelector('.title-input').value = '';
   document.querySelector('#note-content').value = '';
-
-  // window.location.reload();
 }

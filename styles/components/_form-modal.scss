@@ -43,6 +43,7 @@
   border: 0px transparent;
   border-radius: 0.5em;
   font-size: 1em;
+  padding: 1em;
   &::placeholder {
     font-family: $font-family_1;
     font-size: 0.9em;
@@ -112,16 +113,17 @@
   color: $black;
 }
 .confirm__btn {
-  border: 0px transparent;
-  width: auto;
   align-self: center;
   background-color: $color-primary;
   color: $white;
+  width: auto;
 }
 .confirm__icon {
   border: 1px solid $color-note;
   padding: 0.4em;
   border-radius: 50%;
+  width: 2.8em;
+  aspect-ratio: 1 / 1;
   &:hover {
     color: $green;
     background-color: $color-note;
