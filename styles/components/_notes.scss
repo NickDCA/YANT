@@ -37,7 +37,10 @@
         white-space: wrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-height: 1em;
+        max-height: 2em;
+        display: flex;
+        flex-direction: column;
+        list-style-position: inside;
       }
 
       .note__modal {

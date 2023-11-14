@@ -56,11 +56,14 @@ body {
   border: 2px solid white;
   border-radius: 0.5em;
   font-size: 1em;
-  padding: 0.5em;
+  padding: 1em;
   text-align: justify;
   white-space: pre-wrap;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  list-style-position: inside;
 }
 .modal__content .modal__btn {
   display: flex;
@@ -162,7 +165,10 @@ body {
   white-space: wrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 1em;
+  max-height: 2em;
+  display: flex;
+  flex-direction: column;
+  list-style-position: inside;
 }
 .notes__list-item .note__modal {
   display: none;

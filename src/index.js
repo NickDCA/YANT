@@ -1,5 +1,6 @@
+import { marked } from 'marked';
 import '../styles/style.scss';
-import { configureNoteModal } from './configureNoteModal.js';
+import { configureNoteModal, exitModal } from './configureNoteModal.js';
 import { formModal, selectedPriority } from './createNoteForm.js';
 
 let notesList =
@@ -9,19 +10,21 @@ console.table(notesList);
 
 function getNotes() {
   const notesUl = document.querySelector('.notes__list');
+  notesUl.innerHTML = '';
   if (notesList.length > 0) {
+    notesUl.innerHTML = null;
     notesList.forEach((note) => {
       let noteLi = document.createElement('li');
       noteLi.classList.add('notes__list-item', `${note.priority}-priority`);
-      let noteContent = note.content;
+      let noteContent = marked.parse(note.content);
       noteLi.innerHTML = `
       <h3 class="note__title">${note.title}</h3>
         <p class="note__date">${note.date}</p>
-        <p class="note__content">${noteContent}</p>
+        <div class="note__content"></div>
         <div class="note__modal">
           <div class="modal__content">
             <h3 contenteditable="true" class="modal__note-title">${note.title}</h3>
-            <p contenteditable="true" class="modal__note-content">${noteContent}</p>
+            <div contenteditable="true" class="modal__note-content"></div>
             <div class="modal__btn">
               <button class="modal__exit-btn">Exit</button>
               <button class="modal__delete-btn">Delete</button>
@@ -35,19 +38,19 @@ function getNotes() {
         noteModal.classList.add('note__modal--open');
       });
 
+      noteLi.querySelector('.note__content').innerHTML = noteContent;
+      noteLi.querySelector('.modal__note-content').innerHTML = noteContent;
+
       configureNoteModal(noteModal);
       notesUl.appendChild(noteLi);
     });
   } else {
-    return alert(
-      'No notes to be showed, please create one by clicking on the add button ;)'
-    );
+    notesUl.innerHTML =
+      'No notes to be showed, please create one by clicking on the add button ;)';
   }
 }
 
 getNotes();
-
-// CREATION OF NEW NOTES
 
 window.onclick = function (event) {
   let noteModal = document.querySelector('.note__modal--open')
@@ -55,7 +58,7 @@ window.onclick = function (event) {
     : null;
 
   if (noteModal && event.target == noteModal) {
-    noteModal.classList.remove('note__modal--open');
+    exitModal(noteModal);
     //noteSelected = null;
   }
   if (event.target == formModal) {
