@@ -21,11 +21,14 @@
     border: 2px solid white;
     border-radius: 0.5em;
     font-size: 1em;
-    padding: 0.5em;
+    padding: 1em;
     text-align: justify;
     white-space: pre-wrap;
     overflow-wrap: break-word;
     word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    list-style-position: inside;
   }
   .modal__btn {
     display: flex;
